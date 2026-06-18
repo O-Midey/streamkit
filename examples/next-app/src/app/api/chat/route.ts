@@ -1,14 +1,43 @@
 import OpenAI from "openai";
 import { fromOpenAI } from "streamkit/adapters/openai";
 import type { StreamChunk } from "streamkit";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { chatRequestSchema } from "@/lib/validation";
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-export async function POST(req: Request) {
-  const { messages } = await req.json();
+function json(body: unknown, status: number, headers?: Record<string, string>) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { "Content-Type": "application/json", ...headers },
+  });
+}
 
-  const openaiMessages = messages.map((m: { role: string; text: string }) => ({
-    role: m.role as "user" | "assistant",
+export async function POST(req: Request) {
+  // 1. Rate limit per IP before any work or model call.
+  const limit = await checkRateLimit(getClientIp(req));
+  if (limit && !limit.success) {
+    return json({ error: "Rate limit exceeded. Please slow down." }, 429, {
+      "Retry-After": String(limit.retryAfter),
+    });
+  }
+
+  // 2. Validate + cap the input at the boundary (bounds input-token cost).
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return json({ error: "Invalid JSON body." }, 400);
+  }
+
+  const parsed = chatRequestSchema.safeParse(body);
+  if (!parsed.success) {
+    return json({ error: "Invalid request: messages must be 1–20 items, each ≤ 4000 chars." }, 400);
+  }
+  const { messages } = parsed.data;
+
+  const openaiMessages = messages.map((m) => ({
+    role: m.role,
     content: m.text,
   }));
 
