@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output / generated artifacts
+dist/
+storybook-static/
+coverage/
+*.tsbuildinfo
+
+# Next.js (example app)
+.next/
+next-env.d.ts
+
+# VitePress
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# Secrets — never commit real env files (keep .env*.example)
+.env
+.env.*
+!.env.*.example
+
+# OS / editor
+.DS_Store
+*.log
+npm-debug.log*
+.idea/
+.vscode/

@@ -1,0 +1,92 @@
+{
+  "name": "streamkit",
+  "version": "0.1.0",
+  "description": "Rendering and state primitives for streaming LLM UI — token streaming, incremental markdown, tool-call state machines, and multi-stream orchestration. Vendor-agnostic: works with Vercel AI SDK, OpenAI, and Anthropic streams.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./adapters/vercel-ai-sdk": {
+      "types": "./dist/adapters/vercel-ai-sdk.d.ts",
+      "import": "./dist/adapters/vercel-ai-sdk.js",
+      "require": "./dist/adapters/vercel-ai-sdk.cjs"
+    },
+    "./adapters/openai": {
+      "types": "./dist/adapters/openai.d.ts",
+      "import": "./dist/adapters/openai.js",
+      "require": "./dist/adapters/openai.cjs"
+    },
+    "./adapters/anthropic": {
+      "types": "./dist/adapters/anthropic.d.ts",
+      "import": "./dist/adapters/anthropic.js",
+      "require": "./dist/adapters/anthropic.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.2",
+    "ai": "^6.0.208",
+    "dompurify": "^3.4.11",
+    "highlight.js": "^11.11.1",
+    "marked": "^13.0.0",
+    "openai": "^6.44.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.0.0",
+    "@types/dompurify": "^3.0.5",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "@vitest/coverage-v8": "^2.1.0",
+    "jsdom": "^25.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitepress": "^1.6.4",
+    "vitest": "^2.1.0"
+  },
+  "keywords": [
+    "react",
+    "llm",
+    "streaming",
+    "ai",
+    "vercel-ai-sdk",
+    "openai",
+    "anthropic",
+    "markdown"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/O-Midey/streamkit"
+  }
+}
