@@ -1,0 +1,31 @@
+name: Release
+
+# Publishes to npm when a version tag is pushed (e.g. `git tag v0.2.0 && git push origin v0.2.0`).
+# Bump the version in package.json first; npm rejects republishing an existing version.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  id-token: write # required for npm provenance attestation
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: "https://registry.npmjs.org"
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      # --provenance records a signed link between this published artifact and
+      # the exact commit + workflow that built it (visible on the npm page).
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
