@@ -3,7 +3,9 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "streamkit-ui",
   description: "Rendering and state primitives for streaming LLM UI",
-  base: "/",
+  // "/" locally; the Pages workflow sets DOCS_BASE="/streamkit/" so assets
+  // resolve under the project-pages subpath.
+  base: process.env.DOCS_BASE ?? "/",
   themeConfig: {
     logo: { text: "streamkit-ui" },
     nav: [
