@@ -6,6 +6,8 @@
 
 Rendering and state primitives for streaming LLM UI.
 
+📚 **[Documentation](https://o-midey.github.io/streamkit/)** · 📦 **[npm](https://www.npmjs.com/package/streamkit-ui)**
+
 ```bash
 npm install streamkit-ui
 ```
