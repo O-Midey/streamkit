@@ -6,6 +6,31 @@ import { chatRequestSchema } from "@/lib/validation";
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+/**
+ * Tool definitions advertised to the model. Only the JSON schema lives here —
+ * the actual execution is the client's mock (chat.tsx), since this demo's goal
+ * is to show streamkit rendering the tool-call lifecycle, not to run a real
+ * search backend.
+ */
+const TOOLS: OpenAI.Chat.Completions.ChatCompletionTool[] = [
+  {
+    type: "function",
+    function: {
+      name: "search",
+      description:
+        "Search the web for current information. Use for recent events, library/version facts, or anything that should be verified rather than recalled.",
+      parameters: {
+        type: "object",
+        properties: {
+          query: { type: "string", description: "The search query." },
+        },
+        required: ["query"],
+        additionalProperties: false,
+      },
+    },
+  },
+];
+
 function json(body: unknown, status: number, headers?: Record<string, string>) {
   return new Response(JSON.stringify(body), {
     status,
@@ -51,10 +76,15 @@ export async function POST(req: Request) {
 
 When answering coding questions, include code blocks with the correct language tag (typescript, python, bash, etc.)
 Format explanations with markdown — use headers, lists, and emphasis where they aid clarity.
-Use the search tool when you need to look something up (this demo wires it to a mock).`,
+Use the search tool when the user asks about recent events, library versions, or anything you should look up (this demo wires it to a mock executed client-side).`,
       },
       ...openaiMessages,
     ],
+    // Expose a single `search` tool so the demo exercises streamkit's
+    // tool-call rendering. The model decides when to call it (tool_choice
+    // defaults to "auto"); the mock implementation runs on the client via
+    // useChatStream's `tools` registry — see chat.tsx.
+    tools: TOOLS,
     stream: true,
   });
 

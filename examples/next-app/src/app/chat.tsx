@@ -118,6 +118,28 @@ export function Chat() {
 
   const { messages, isStreaming, error, sendMessage, abort } = useChatStream({
     getAssistantStream: ndjsonStreamFactory,
+    // Mock tool implementations. The server (api/chat/route.ts) advertises a
+    // `search` tool to the model; when the model calls it, useChatStream runs
+    // this implementation and drives the tool-call chip through
+    // pending → executing → success in the UI below.
+    //
+    // NOTE: this is a single-turn demo — the mock result is rendered but not
+    // fed back to the model for a follow-up completion. A production agent
+    // would loop the tool result into a second request for a synthesized
+    // answer; that loop is intentionally out of scope here.
+    tools: {
+      search: async (args: unknown) => {
+        const { query } = (args ?? {}) as { query?: string };
+        await new Promise((r) => setTimeout(r, 700)); // simulate network latency
+        return {
+          query: query ?? "",
+          results: [
+            { title: `Top result for "${query}"`, url: "https://example.com/1" },
+            { title: "Relevant documentation", url: "https://example.com/2" },
+          ],
+        };
+      },
+    },
   });
 
   // Auto-scroll to the latest message as it streams in
@@ -172,7 +194,7 @@ export function Chat() {
               {[
                 "Explain React Server Components with a code example",
                 "What are the SOLID principles? Use markdown formatting",
-                "Write a TypeScript utility type for deep partial objects",
+                "Search for the latest TypeScript release and its headline features",
               ].map((s) => (
                 <button
                   key={s}
