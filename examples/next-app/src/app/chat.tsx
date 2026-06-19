@@ -6,12 +6,12 @@ import {
   StreamingMarkdown,
   StreamingCodeBlock,
   StreamStatus,
-} from "streamkit";
+} from "streamkit-ui";
 import type {
   StreamChunk,
   StreamMessage,
   StreamSourceFactory,
-} from "streamkit";
+} from "streamkit-ui";
 
 // Parse an ndjson response from /api/chat into a StreamSource.
 // This is the "custom backend" adapter pattern: the server serializes

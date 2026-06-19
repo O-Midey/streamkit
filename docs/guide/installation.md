@@ -1,7 +1,7 @@
 # Installation
 
 ```bash
-npm install streamkit
+npm install streamkit-ui
 # or
 pnpm add streamkit
 ```

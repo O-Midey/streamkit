@@ -29,7 +29,7 @@ Default labels: `idle → "Idle"`, `streaming → "Thinking…"`, `done → "Don
 Default markup:
 
 ```tsx
-import { StreamStatus } from "streamkit";
+import { StreamStatus } from "streamkit-ui";
 
 <StreamStatus status={isStreaming ? "streaming" : "done"} error={error} />
 ```

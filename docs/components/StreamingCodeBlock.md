@@ -30,7 +30,7 @@ function StreamingCodeBlock(props: StreamingCodeBlockProps): JSX.Element
 ## Example
 
 ```tsx
-import { StreamingCodeBlock } from "streamkit";
+import { StreamingCodeBlock } from "streamkit-ui";
 
 function CodeSnippet({ code, lang, streaming }) {
   return (

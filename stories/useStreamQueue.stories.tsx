@@ -5,7 +5,7 @@ import { StreamStatus } from "../src/components/StreamStatus";
 import type { StreamSourceFactory } from "../src/types";
 
 const meta: Meta = {
-  title: "streamkit/useStreamQueue",
+  title: "streamkit-ui/useStreamQueue",
   tags: ["autodocs"],
   parameters: {
     docs: {

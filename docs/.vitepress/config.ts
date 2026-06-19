@@ -1,11 +1,11 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  title: "streamkit",
+  title: "streamkit-ui",
   description: "Rendering and state primitives for streaming LLM UI",
   base: "/",
   themeConfig: {
-    logo: { text: "streamkit" },
+    logo: { text: "streamkit-ui" },
     nav: [
       { text: "Guide", link: "/guide/why" },
       { text: "API", link: "/hooks/useTokenStream" },

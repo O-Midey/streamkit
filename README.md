@@ -1,9 +1,13 @@
-# streamkit
+# streamkit-ui
+
+[![npm version](https://img.shields.io/npm/v/streamkit-ui.svg)](https://www.npmjs.com/package/streamkit-ui)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/streamkit-ui)](https://bundlephobia.com/package/streamkit-ui)
+[![license](https://img.shields.io/npm/l/streamkit-ui.svg)](./LICENSE)
 
 Rendering and state primitives for streaming LLM UI.
 
 ```bash
-npm install streamkit
+npm install streamkit-ui
 ```
 
 ---
@@ -13,8 +17,8 @@ npm install streamkit
 A React library that sits between a streaming LLM response and a production UI. It's not a chat component, a model client, or an agent framework — it's the layer that handles the rendering and state problems so your code can focus on product problems.
 
 ```tsx
-import { useChatStream, StreamingMarkdown, StreamingCodeBlock, StreamStatus } from "streamkit";
-import { fromAnthropic } from "streamkit/adapters/anthropic";
+import { useChatStream, StreamingMarkdown, StreamingCodeBlock, StreamStatus } from "streamkit-ui";
+import { fromAnthropic } from "streamkit-ui/adapters/anthropic";
 
 function Chat() {
   const { messages, isStreaming, sendMessage, abort } = useChatStream({
@@ -70,7 +74,7 @@ The obvious way to pass a stream source to a hook is as a prop: `useStream(() =>
 
 ### 6. Vendor lock-in at the rendering layer
 
-Building streaming UI directly against the Vercel AI SDK's `TextStreamPart` shape means touching component code when switching providers. Every hook and component in streamkit only sees `StreamChunk` — a single type owned by this library. The three adapters do real translation work:
+Building streaming UI directly against the Vercel AI SDK's `TextStreamPart` shape means touching component code when switching providers. Every hook and component in streamkit-ui only sees `StreamChunk` — a single type owned by this library. The three adapters do real translation work:
 
 - **Vercel AI SDK v6**: `text-delta` uses `.text` (not `.textDelta` — a field renamed mid-v5 that broke a lot of code). Tool calls arrive as a complete `tool-call` event with parsed `input`; the adapter emits a synthetic start+ready pair so the tool-call state machine sees a consistent sequence.
 - **Anthropic**: Tool arguments arrive as `input_json_delta` events keyed by content-block `index` (not by a stable id). The adapter tracks a `Map<index, BlockTracker>` and defers `JSON.parse()` until `content_block_stop` fires, because individual delta fragments can split a JSON token at arbitrary byte boundaries.
@@ -101,9 +105,9 @@ Building streaming UI directly against the Vercel AI SDK's `TextStreamPart` shap
 ### Adapters (subpath imports)
 
 ```typescript
-import { fromVercelAISDK } from "streamkit/adapters/vercel-ai-sdk";
-import { fromAnthropic }    from "streamkit/adapters/anthropic";
-import { fromOpenAI }       from "streamkit/adapters/openai";
+import { fromVercelAISDK } from "streamkit-ui/adapters/vercel-ai-sdk";
+import { fromAnthropic }    from "streamkit-ui/adapters/anthropic";
+import { fromOpenAI }       from "streamkit-ui/adapters/openai";
 ```
 
 ---
@@ -169,7 +173,7 @@ npm run build   # ESM + CJS + .d.ts to dist/
 npm run typecheck
 ```
 
-Dual ESM/CJS output with proper subpath exports for the adapter packages (`streamkit/adapters/anthropic`, etc.) and `"types"` condition first in all exports map entries.
+Dual ESM/CJS output with proper subpath exports for the adapter packages (`streamkit-ui/adapters/anthropic`, etc.) and `"types"` condition first in all exports map entries.
 
 ---
 

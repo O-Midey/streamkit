@@ -3,7 +3,7 @@ import { useState } from "react";
 import { StreamingCodeBlock } from "../src/components/StreamingCodeBlock";
 
 const meta: Meta<typeof StreamingCodeBlock> = {
-  title: "streamkit/StreamingCodeBlock",
+  title: "streamkit-ui/StreamingCodeBlock",
   component: StreamingCodeBlock,
   tags: ["autodocs"],
   parameters: {
@@ -47,7 +47,7 @@ with client.messages.stream(
         print(text, end="", flush=True)`;
 
 const BASH_CODE = `# Install streamkit and adapters
-npm install streamkit
+npm install streamkit-ui
 
 # Set up your API key
 export ANTHROPIC_API_KEY="your_key_here"

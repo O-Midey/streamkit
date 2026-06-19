@@ -39,7 +39,7 @@ A `ToolImplementation` is `(args, signal) => Promise<result> | result`. It recei
 ## Example
 
 ```tsx
-import { useToolCallState } from "streamkit";
+import { useToolCallState } from "streamkit-ui";
 
 function ToolPanel() {
   const { calls, registerCall } = useToolCallState({

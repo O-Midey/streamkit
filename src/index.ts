@@ -33,7 +33,7 @@ export type { StreamStatusProps } from "./components/StreamStatus";
 export { StreamingCodeBlock } from "./components/StreamingCodeBlock";
 export type { StreamingCodeBlockProps } from "./components/StreamingCodeBlock";
 
-// Adapters (imported via subpath: streamkit/adapters/vercel-ai-sdk, etc.)
+// Adapters (imported via subpath: streamkit-ui/adapters/vercel-ai-sdk, etc.)
 // Re-exported here for convenience; prefer the subpath imports in production
 // to avoid bundling all three adapters when you only use one.
 export { fromVercelAISDK } from "./adapters/vercel-ai-sdk";

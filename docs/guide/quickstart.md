@@ -5,7 +5,7 @@
 ```typescript
 // app/api/chat/route.ts
 import Anthropic from "@anthropic-ai/sdk";
-import { fromAnthropic } from "streamkit/adapters/anthropic";
+import { fromAnthropic } from "streamkit-ui/adapters/anthropic";
 
 const client = new Anthropic();
 
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
 
 ```typescript
 // lib/stream-factory.ts
-import type { StreamChunk, StreamSourceFactory } from "streamkit";
+import type { StreamChunk, StreamSourceFactory } from "streamkit-ui";
 
 export function chatFactory(messages: { role: string; text: string }[]): StreamSourceFactory {
   return async function* (signal) {
@@ -73,9 +73,9 @@ export function chatFactory(messages: { role: string; text: string }[]): StreamS
 // components/Chat.tsx
 "use client";
 import { useRef } from "react";
-import { useChatStream, StreamingMarkdown, StreamStatus } from "streamkit";
+import { useChatStream, StreamingMarkdown, StreamStatus } from "streamkit-ui";
 import { chatFactory } from "@/lib/stream-factory";
-import type { StreamMessage } from "streamkit";
+import type { StreamMessage } from "streamkit-ui";
 
 export function Chat() {
   const inputRef = useRef<HTMLInputElement>(null);

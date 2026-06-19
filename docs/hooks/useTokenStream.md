@@ -55,8 +55,8 @@ Incoming chunks are buffered in a ref and flushed to React state on a ~30fps int
 ## Example
 
 ```tsx
-import { useTokenStream } from "streamkit";
-import { fromAnthropic } from "streamkit/adapters/anthropic";
+import { useTokenStream } from "streamkit-ui";
+import { fromAnthropic } from "streamkit-ui/adapters/anthropic";
 
 function StreamingOutput({ stream }: { stream: AsyncIterable<any> }) {
   const factory = useCallback(

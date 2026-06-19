@@ -27,7 +27,7 @@ function StreamingMarkdown(props: StreamingMarkdownProps): JSX.Element
 ## Example
 
 ```tsx
-import { useTokenStream, StreamingMarkdown } from "streamkit";
+import { useTokenStream, StreamingMarkdown } from "streamkit-ui";
 
 function Answer({ factory }) {
   const { text, status } = useTokenStream(factory);

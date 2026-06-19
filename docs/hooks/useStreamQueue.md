@@ -40,7 +40,7 @@ Each `QueuedStreamState` is `{ id, text, toolCalls, status, error }`.
 ## Example
 
 ```tsx
-import { useStreamQueue } from "streamkit";
+import { useStreamQueue } from "streamkit-ui";
 
 function ParallelStreams() {
   const { streams, enqueue, abortAll, isAnyActive } = useStreamQueue({

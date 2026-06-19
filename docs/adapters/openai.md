@@ -5,16 +5,16 @@ Translates an OpenAI streaming chat completion into a `StreamChunk` sequence.
 ## Import
 
 ```typescript
-import { fromOpenAI } from "streamkit/adapters/openai";
+import { fromOpenAI } from "streamkit-ui/adapters/openai";
 // or (includes all adapters):
-import { fromOpenAI } from "streamkit";
+import { fromOpenAI } from "streamkit-ui";
 ```
 
 ## Usage
 
 ```typescript
 import OpenAI from "openai";
-import { fromOpenAI } from "streamkit/adapters/openai";
+import { fromOpenAI } from "streamkit-ui/adapters/openai";
 
 const client = new OpenAI();
 

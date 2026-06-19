@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { StreamStatus } from "../src/components/StreamStatus";
 
 const meta: Meta<typeof StreamStatus> = {
-  title: "streamkit/StreamStatus",
+  title: "streamkit-ui/StreamStatus",
   component: StreamStatus,
   tags: ["autodocs"],
   parameters: {

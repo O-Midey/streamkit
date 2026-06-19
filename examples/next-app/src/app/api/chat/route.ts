@@ -1,6 +1,6 @@
 import OpenAI from "openai";
-import { fromOpenAI } from "streamkit/adapters/openai";
-import type { StreamChunk } from "streamkit";
+import { fromOpenAI } from "streamkit-ui/adapters/openai";
+import type { StreamChunk } from "streamkit-ui";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { chatRequestSchema } from "@/lib/validation";
 

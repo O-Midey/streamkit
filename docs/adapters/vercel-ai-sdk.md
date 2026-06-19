@@ -5,9 +5,9 @@ Translates a Vercel AI SDK v6 `streamText()` result's `fullStream` into a `Strea
 ## Import
 
 ```typescript
-import { fromVercelAISDK } from "streamkit/adapters/vercel-ai-sdk";
+import { fromVercelAISDK } from "streamkit-ui/adapters/vercel-ai-sdk";
 // or (includes all adapters):
-import { fromVercelAISDK } from "streamkit";
+import { fromVercelAISDK } from "streamkit-ui";
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ import { fromVercelAISDK } from "streamkit";
 ```typescript
 import { streamText } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { fromVercelAISDK } from "streamkit/adapters/vercel-ai-sdk";
+import { fromVercelAISDK } from "streamkit-ui/adapters/vercel-ai-sdk";
 
 const result = streamText({
   model: openai("gpt-4o"),

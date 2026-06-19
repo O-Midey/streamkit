@@ -24,9 +24,9 @@ First public release.
 
 ### Adapters
 
-- `streamkit/adapters/vercel-ai-sdk` — `fromVercelAISDK`
-- `streamkit/adapters/openai` — `fromOpenAI`
-- `streamkit/adapters/anthropic` — `fromAnthropic`
+- `streamkit-ui/adapters/vercel-ai-sdk` — `fromVercelAISDK`
+- `streamkit-ui/adapters/openai` — `fromOpenAI`
+- `streamkit-ui/adapters/anthropic` — `fromAnthropic`
 
 All adapters normalize vendor stream shapes into a single `StreamChunk` type; the
 library carries no LLM SDK as a runtime dependency.

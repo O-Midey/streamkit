@@ -9,7 +9,7 @@ The example app uses newline-delimited JSON: the server serializes `StreamChunk`
 ```typescript
 // Shared type — your server serializes StreamChunk to JSON lines.
 // Your client parses them back.
-import type { StreamChunk, StreamSourceFactory } from "streamkit";
+import type { StreamChunk, StreamSourceFactory } from "streamkit-ui";
 
 export function ndjsonFactory(url: string, body: unknown): StreamSourceFactory {
   return async function* (signal) {

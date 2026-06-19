@@ -28,12 +28,12 @@ features:
 ## Install
 
 ```bash
-npm install streamkit
+npm install streamkit-ui
 ```
 
 ```tsx
-import { useChatStream, StreamingMarkdown, StreamStatus } from "streamkit";
-import { fromAnthropic } from "streamkit/adapters/anthropic";
+import { useChatStream, StreamingMarkdown, StreamStatus } from "streamkit-ui";
+import { fromAnthropic } from "streamkit-ui/adapters/anthropic";
 ```
 
 Start with the [guide](/guide/why) for the design rationale, or jump to the [quick start](/guide/quickstart) to wire it up.

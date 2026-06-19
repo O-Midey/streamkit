@@ -37,8 +37,8 @@ A mid-stream `error` chunk is **not** yielded to the consumer immediately — do
 ## Example
 
 ```tsx
-import { useTokenStream, createResumableStream } from "streamkit";
-import { fromOpenAI } from "streamkit/adapters/openai";
+import { useTokenStream, createResumableStream } from "streamkit-ui";
+import { fromOpenAI } from "streamkit-ui/adapters/openai";
 
 const factory = createResumableStream({
   buildFactory: ({ attempt }) => (signal) =>

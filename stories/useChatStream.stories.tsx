@@ -6,7 +6,7 @@ import { StreamStatus } from "../src/components/StreamStatus";
 import type { StreamMessage, StreamSourceFactory } from "../src/types";
 
 const meta: Meta = {
-  title: "streamkit/useChatStream",
+  title: "streamkit-ui/useChatStream",
   tags: ["autodocs"],
   parameters: {
     docs: {

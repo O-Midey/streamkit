@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { StreamingMarkdown } from "../src/components/StreamingMarkdown";
 
 const meta: Meta<typeof StreamingMarkdown> = {
-  title: "streamkit/StreamingMarkdown",
+  title: "streamkit-ui/StreamingMarkdown",
   component: StreamingMarkdown,
   tags: ["autodocs"],
   parameters: {

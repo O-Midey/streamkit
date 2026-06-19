@@ -5,16 +5,16 @@ Translates the Anthropic Messages API raw stream events into `StreamChunk` seque
 ## Import
 
 ```typescript
-import { fromAnthropic } from "streamkit/adapters/anthropic";
+import { fromAnthropic } from "streamkit-ui/adapters/anthropic";
 // or (includes all adapters):
-import { fromAnthropic } from "streamkit";
+import { fromAnthropic } from "streamkit-ui";
 ```
 
 ## Usage
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
-import { fromAnthropic } from "streamkit/adapters/anthropic";
+import { fromAnthropic } from "streamkit-ui/adapters/anthropic";
 
 const client = new Anthropic();
 

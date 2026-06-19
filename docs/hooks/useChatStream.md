@@ -39,8 +39,8 @@ function useChatStream(
 ## Example
 
 ```tsx
-import { useChatStream, StreamingMarkdown, StreamStatus } from "streamkit";
-import { fromAnthropic } from "streamkit/adapters/anthropic";
+import { useChatStream, StreamingMarkdown, StreamStatus } from "streamkit-ui";
+import { fromAnthropic } from "streamkit-ui/adapters/anthropic";
 
 function Chat() {
   const { messages, isStreaming, sendMessage, abort } = useChatStream({

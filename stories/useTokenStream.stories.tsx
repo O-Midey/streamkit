@@ -6,7 +6,7 @@ import { StreamingMarkdown } from "../src/components/StreamingMarkdown";
 import type { StreamSourceFactory } from "../src/types";
 
 const meta: Meta = {
-  title: "streamkit/useTokenStream",
+  title: "streamkit-ui/useTokenStream",
   tags: ["autodocs"],
   parameters: {
     docs: {
