@@ -50,13 +50,9 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.104.2",
-    "ai": "^6.0.208",
     "dompurify": "^3.4.11",
     "highlight.js": "^11.11.1",
-    "marked": "^13.0.0",
-    "openai": "^6.44.0",
-    "zod": "^4.4.3"
+    "marked": "^13.0.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.6.18",
@@ -82,17 +78,27 @@
   },
   "keywords": [
     "react",
+    "react-hooks",
     "llm",
     "streaming",
     "ai",
+    "ai-sdk",
     "vercel-ai-sdk",
     "openai",
     "anthropic",
-    "markdown"
+    "markdown",
+    "tool-calls"
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/O-Midey/streamkit"
+  },
+  "homepage": "https://github.com/O-Midey/streamkit#readme",
+  "bugs": {
+    "url": "https://github.com/O-Midey/streamkit/issues"
   }
 }

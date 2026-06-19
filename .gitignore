@@ -6,6 +6,7 @@ dist/
 storybook-static/
 coverage/
 *.tsbuildinfo
+*.tgz
 
 # Next.js (example app)
 .next/
