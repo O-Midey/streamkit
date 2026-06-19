@@ -9,6 +9,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 First public release.
 
 ### Hooks
+
 - `useTokenStream` — consume a `StreamSource` with ~30fps backpressure batching, abort correctness, and `streamKey`-driven restarts.
 - `useToolCallState` — tool-execution registry with idempotent registration, abort-on-unmount, and bounded history.
 - `useChatStream` — multi-turn message-list reducer composing the above, handling interleaved text and tool calls.
@@ -16,11 +17,13 @@ First public release.
 - `createResumableStream` — retry-with-resume-context wrapper around a stream factory.
 
 ### Components
+
 - `StreamingMarkdown` — incremental, block-memoized markdown rendering, DOMPurify-sanitized at the injection boundary.
 - `StreamingCodeBlock` — debounced syntax highlighting (highlight.js) with a copy button, sanitized output.
 - `StreamStatus` — headless-capable stream lifecycle indicator.
 
 ### Adapters
+
 - `streamkit/adapters/vercel-ai-sdk` — `fromVercelAISDK`
 - `streamkit/adapters/openai` — `fromOpenAI`
 - `streamkit/adapters/anthropic` — `fromAnthropic`
