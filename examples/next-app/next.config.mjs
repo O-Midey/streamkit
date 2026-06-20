@@ -5,11 +5,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["streamkit"],
+  transpilePackages: ["streamkit-ui"],
   // This example lives in a monorepo-style layout (streamkit root + nested
   // lockfiles). Pin the file-tracing root to the repo root so Next stops
   // warning about inferring it from multiple lockfiles, and so output tracing
-  // resolves the linked `streamkit` package correctly on deploy.
+  // resolves the linked `streamkit-ui` package correctly on deploy.
   outputFileTracingRoot: path.join(__dirname, "../../"),
 };
 

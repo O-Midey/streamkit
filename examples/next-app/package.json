@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "//prebuild": "The streamkit-ui dep is a file: link to the repo root, whose dist/ is gitignored. On a clean Vercel checkout that dist/ is absent and npm does not build a file: dependency, so build the library before next build.",
+    "prebuild": "npm --prefix ../.. ci && npm --prefix ../.. run build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.2",
