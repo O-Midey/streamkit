@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "//prebuild": "The streamkit-ui dep is a file: link to the repo root, whose dist/ is gitignored. On a clean Vercel checkout that dist/ is absent and npm does not build a file: dependency, so build the library before next build.",
-    "prebuild": "npm --prefix ../.. ci && npm --prefix ../.. run build"
+    "//prebuild": "The streamkit-ui dep is a file: link to the repo root, whose dist/ is gitignored. On a clean Vercel checkout that dist/ is absent and npm does not build a file: dependency, so build the library before next build. --include=dev is required because Vercel installs with NODE_ENV=production, which otherwise omits tsup and the other build-time devDependencies.",
+    "prebuild": "npm --prefix ../.. ci --include=dev && npm --prefix ../.. run build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.2",
